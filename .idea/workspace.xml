@@ -4,19 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a79c7ccf-b387-4cea-8d3f-3a72657f2f04" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/parallel_computing/lab1/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/parallel_computing/lab1/Matrix.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/parallel_computing/lab1/Parallel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/parallel_computing/lab1/Sequential.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/my/AppTest.java" afterDir="false" />
+    <list default="true" id="a79c7ccf-b387-4cea-8d3f-3a72657f2f04" name="Changes" comment="parallel_computing lab1">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,8 +68,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1676631177422</updated>
-      <workItem from="1676631180791" duration="8027000" />
+      <workItem from="1676631180791" duration="8444000" />
     </task>
+    <task id="LOCAL-00001" summary="parallel_computing lab1">
+      <created>1676639395209</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1676639395209</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -96,5 +93,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="parallel_computing lab1" />
+    <option name="LAST_COMMIT_MESSAGE" value="parallel_computing lab1" />
   </component>
 </project>
