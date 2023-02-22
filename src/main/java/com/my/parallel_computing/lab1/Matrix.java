@@ -1,9 +1,10 @@
 package com.my.parallel_computing.lab1;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Random;
 
-public class Matrix{
+public class Matrix implements Serializable {
     private int dimension;
     private int[][] matrix;
 

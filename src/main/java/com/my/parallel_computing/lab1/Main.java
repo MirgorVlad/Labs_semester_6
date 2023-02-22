@@ -1,12 +1,13 @@
 package com.my.parallel_computing.lab1;
 
+import org.apache.commons.lang3.SerializationUtils;
+
 import java.util.Objects;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
 
         //System.out.println("Initial matrix:");
-
         Matrix matrix = new Matrix(20000);
         matrix.fillMatrixByRandomValues();
        // matrix.printMatrix();

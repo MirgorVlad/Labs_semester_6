@@ -15,8 +15,9 @@ public class Parallel {
             if(i == threadCount-1)
                 finish = matrix.getDimension();
 
-            Runnable runnable1 = new CountingThread(matrix, start, finish);
-            Thread thread = new Thread(runnable1);
+            Runnable runnable = new CountingThread(matrix, start, finish);
+            Thread thread = new Thread(runnable);
+
             threadList.add(thread);
             thread.start();
         }
@@ -46,7 +47,9 @@ class CountingThread implements Runnable{
         int dimension = matrix.getDimension();
         for (int i = start; i < end; i++) {
             minElementIndex = matrix.findMinElementIndexAtColumn(i);
-            matrix.swapElements(minElementIndex, i, dimension-1-i, i);
+            synchronized (this) {
+                matrix.swapElements(minElementIndex, i, dimension - 1 - i, i);
+            }
         }
     }
 }
