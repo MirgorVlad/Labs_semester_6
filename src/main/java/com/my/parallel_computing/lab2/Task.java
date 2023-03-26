@@ -1,12 +1,14 @@
 package com.my.parallel_computing.lab2;
 
+import java.time.LocalDateTime;
 import java.util.Random;
 
 public class Task implements Runnable, Comparable<Task>{
     private static final int MIN_TIME = 5;
     private static final int MAX_TIME = 10;
     private final int  timeOfTask;
-    private int number;
+    private final int number;
+
 
     Task(int number){
         this.number = number;

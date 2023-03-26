@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a79c7ccf-b387-4cea-8d3f-3a72657f2f04" name="Changes" comment="networks lab1 (sockets)">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/parallel_computing/lab2/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/parallel_computing/lab2/Task.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/parallel_computing/lab2/ThreadPool.java" afterDir="false" />
+    <list default="true" id="a79c7ccf-b387-4cea-8d3f-3a72657f2f04" name="Changes" comment="parallel computing lab 2 (Thread pool)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/parallel_computing/lab2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/parallel_computing/lab2/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/parallel_computing/lab2/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/parallel_computing/lab2/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/parallel_computing/lab2/ThreadPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/parallel_computing/lab2/ThreadPool.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +94,9 @@
       <updated>1676631177422</updated>
       <workItem from="1676631180791" duration="8444000" />
       <workItem from="1677131814337" duration="2099000" />
-      <workItem from="1679131240596" duration="7134000" />
+      <workItem from="1679131240596" duration="7315000" />
+      <workItem from="1679592194146" duration="13000" />
+      <workItem from="1679820726551" duration="4972000" />
     </task>
     <task id="LOCAL-00001" summary="parallel_computing lab1">
       <created>1676639395209</created>
@@ -103,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676639395209</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="parallel computing lab 2 (Thread pool)">
+      <created>1679138712040</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1679138712040</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,6 +131,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="parallel_computing lab1" />
-    <option name="LAST_COMMIT_MESSAGE" value="parallel_computing lab1" />
+    <MESSAGE value="parallel computing lab 2 (Thread pool)" />
+    <option name="LAST_COMMIT_MESSAGE" value="parallel computing lab 2 (Thread pool)" />
   </component>
 </project>

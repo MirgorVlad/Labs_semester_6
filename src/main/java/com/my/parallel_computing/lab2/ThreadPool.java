@@ -1,5 +1,6 @@
 package com.my.parallel_computing.lab2;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.PriorityBlockingQueue;
@@ -7,7 +8,7 @@ import java.util.concurrent.PriorityBlockingQueue;
 public class ThreadPool {
     private static final int QUEUE_LIMIT = 15;
     private final PriorityBlockingQueue<Task> taskQueue = new PriorityBlockingQueue<>(QUEUE_LIMIT);
-    List<Thread> threadList;
+    private final List<Thread> threadList;
 
     private volatile boolean isRunning = true;
 
@@ -42,17 +43,27 @@ public class ThreadPool {
         }
     }
 
+    public boolean isRunning() {
+        return isRunning;
+    }
+
+    public boolean empty(){
+        return taskQueue.isEmpty();
+    }
+
+    public int size(){
+        return taskQueue.size();
+    }
+
+    public void clear(){
+        taskQueue.clear();
+    }
+
     private final class TaskWorker implements Runnable {
 
         @Override
         public void run() {
-
             while (isRunning) {
-
-                if(Thread.interrupted()){
-                    break;
-                }
-
                 Task nextTask = taskQueue.poll();
                 if (nextTask != null) {
                     nextTask.run();
