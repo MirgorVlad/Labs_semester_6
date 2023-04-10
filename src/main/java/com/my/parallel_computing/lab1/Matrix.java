@@ -25,6 +25,15 @@ public class Matrix implements Serializable {
         }
     }
 
+    public void fillMatrixByValue(int val){
+
+        for(int i = 0; i < dimension; i++){
+            for (int j = 0; j < dimension; j++) {
+                matrix[i][j] = val;
+            }
+        }
+    }
+
     public void printMatrix() {
 
         for(int i = 0; i < dimension; i++){

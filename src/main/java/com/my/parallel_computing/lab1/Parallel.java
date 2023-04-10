@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Parallel {
-    public static void doAction(Matrix matrix, int threadCount) throws InterruptedException {
+    public static final Object mutex = new Object();
+    public static void doAction(Matrix matrix, int threadCount, String lab) throws InterruptedException {
         int step = matrix.getDimension() / threadCount;
         int start, finish;
         List<Thread> threadList = new ArrayList<>();
@@ -15,7 +16,12 @@ public class Parallel {
             if(i == threadCount-1)
                 finish = matrix.getDimension();
 
-            Runnable runnable = new CountingThread(matrix, start, finish);
+            Runnable runnable = null;
+            if(lab.equals(Main.LAB1))
+                runnable = WorkerFactory.getDiagonalWorker(matrix, start, finish);
+            if(lab.equals(Main.LAB3))
+                runnable = WorkerFactory.getSumWorkerAtomic(matrix, start, finish);
+
             Thread thread = new Thread(runnable);
 
             threadList.add(thread);
@@ -29,27 +35,3 @@ public class Parallel {
     }
 }
 
-class CountingThread implements Runnable{
-
-    public int start;
-    public int end;
-    public Matrix matrix;
-
-    public CountingThread(Matrix matrix, int start, int end){
-        this.matrix = matrix;
-        this.start = start;
-        this.end = end;
-    }
-
-    @Override
-    public void run() {
-        int minElementIndex;
-        int dimension = matrix.getDimension();
-        for (int i = start; i < end; i++) {
-            minElementIndex = matrix.findMinElementIndexAtColumn(i);
-            synchronized (this) {
-                matrix.swapElements(minElementIndex, i, dimension - 1 - i, i);
-            }
-        }
-    }
-}
