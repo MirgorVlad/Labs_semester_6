@@ -2,6 +2,7 @@ package com.my.parallel_computing.lab1;
 
 import org.apache.commons.lang3.SerializationUtils;
 
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
@@ -15,12 +16,15 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException {
 
+        int[] arr = new int[]{1,2,3,1};
+
+
         Matrix matrix = new Matrix(20000);
         matrix.fillMatrixByRandomValues();
 
 
         long start = System.nanoTime();
-        Parallel.doAction(matrix,1000, LAB3);
+        Parallel.doAction(matrix,2, LAB3);
         long finish = System.nanoTime();
 
         System.out.println("Sum = " + sum);

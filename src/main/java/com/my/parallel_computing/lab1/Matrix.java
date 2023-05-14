@@ -7,10 +7,16 @@ import java.util.Random;
 public class Matrix implements Serializable {
     private int dimension;
     private int[][] matrix;
+    private boolean finished;
 
     public Matrix(int dimension){
         this.dimension = dimension;
         matrix = new int[dimension][dimension];
+    }
+
+    public Matrix(int[][] arr){
+        this.dimension = arr.length;
+        matrix = arr;
     }
 
 
@@ -77,5 +83,21 @@ public class Matrix implements Serializable {
 
     public void setMatrix(int[][] matrix) {
         this.matrix = matrix;
+    }
+
+    public boolean isFinished() {
+        return finished;
+    }
+
+    public void setFinished(boolean finished) {
+        this.finished = finished;
+    }
+
+    public int[] getResultArray() {
+        int[] result  = new int[dimension];
+        for (int i = dimension-1, j = 0; i >= 0; i--, j++) {
+            result[j] = matrix[i][dimension-i-1];
+        }
+        return result;
     }
 }
