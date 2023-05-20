@@ -9,8 +9,8 @@ import static java.lang.Thread.sleep;
 
 public class Parallel {
     public static final Object mutex = new Object();
-    public static void doAction(Matrix matrix, int threadCount, String lab) throws InterruptedException {
-        sleep(60000);
+    public static Matrix doAction(Matrix matrix, int threadCount, String lab) throws InterruptedException {
+        sleep(10000);
         int step = matrix.getDimension() / threadCount;
         int start, finish;
         List<Thread> threadList = new ArrayList<>();
@@ -37,6 +37,7 @@ public class Parallel {
             thread.join();
         }
         matrix.setFinished(true);
+        return matrix;
     }
 }
 

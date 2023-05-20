@@ -9,6 +9,7 @@ import java.net.Socket;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -17,10 +18,11 @@ import static java.lang.Thread.sleep;
 
 public class Server {
     //public static AtomicBoolean executorAvailable = new AtomicBoolean(true);
-    public static TaskProcessingThread taskProcessingThread = new TaskProcessingThread();
+    //public static TaskProcessingThread taskProcessingThread = new TaskProcessingThread();
+    public static CompletableFuture<Matrix> future;
     public static void main(String[] args) throws IOException {
         ServerSocket ss = new ServerSocket(5056);
-        taskProcessingThread.start();
+        //taskProcessingThread.start();
         while (true)
         {
             Socket s = null;
@@ -50,19 +52,25 @@ public class Server {
             }
         }
     }
+    public static synchronized Matrix calculate(Matrix matrix, int countThread) {
+        try {
+            Matrix result = Parallel.doAction(matrix, countThread, LAB1);
+            return result;
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
 
 // ClientHandler class
-class ClientThread extends Thread
-{
+class ClientThread extends Thread {
     private final DataInputStream dis;
     private final DataOutputStream dos;
     private final Socket s;
     private boolean finished;
 
     // Constructor
-    public ClientThread(Socket s, DataInputStream dis, DataOutputStream dos)
-    {
+    public ClientThread(Socket s, DataInputStream dis, DataOutputStream dos) {
         this.s = s;
         this.dis = dis;
         this.dos = dos;
@@ -110,15 +118,17 @@ class ClientThread extends Thread
 
                         matrixResult = new Matrix(matrix);
 
-                        Server.taskProcessingThread.addTask(new Data(matrixResult, threadCount));
+                        Matrix finalMatrixResult = matrixResult;
+                        int finalThreadCount = threadCount;
+
+                        Server.future = CompletableFuture.supplyAsync(() ->
+                                Server.calculate(finalMatrixResult, finalThreadCount)
+                        );
                     }
 
                 }
                 else if(received.equals("result")){
-                    if(matrixResult == null){
-                        dos.write(-1);
-                    }
-                    else if(!matrixResult.isFinished()){
+                    if(!Server.future.isDone()){
                         dos.write(0);
                     }
                     else {
@@ -160,28 +170,28 @@ class ClientThread extends Thread
     }
 }
 
-class TaskProcessingThread extends Thread{
-
-    private final BlockingQueue<Data> taskQueue = new LinkedBlockingQueue<>();
-
-
-    public TaskProcessingThread(){}
-
-    public void addTask(Data data){
-        taskQueue.add(data);
-    }
-
-
-    @Override
-    public synchronized void run() {
-        try {
-            while (true) {
-                Data data = taskQueue.take();
-                Parallel.doAction(data.getMatrix(), data.getThreadCount(), LAB1);
-            }
-
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-}
+//class TaskProcessingThread{
+//
+//    private final BlockingQueue<Data> taskQueue = new LinkedBlockingQueue<>();
+//
+//
+//    public TaskProcessingThread(){}
+//
+//    public void addTask(Data data){
+//        taskQueue.add(data);
+//    }
+//
+//
+//    @Override
+//    public synchronized void run() {
+//        try {
+//            while (true) {
+//                Data data = taskQueue.take();
+//                Parallel.doAction(data.getMatrix(), data.getThreadCount(), LAB1);
+//            }
+//
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//    }
+//}

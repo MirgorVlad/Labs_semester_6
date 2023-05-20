@@ -53,12 +53,15 @@ public class Client
                 out.writeUTF(line);
 
                 if(line.contains("configuration")){
+                    int threadCount = Integer.parseInt(line.split(":")[1]);
+                    int dim = Integer.parseInt(line.split(":")[2]);
+
                     ByteArrayOutputStream byteOut = new ByteArrayOutputStream();
                     ObjectOutputStream objOut = new ObjectOutputStream(byteOut);
-                    objOut.writeObject(generateArray(5));
+                    objOut.writeObject(generateArray(dim));
                     byte[] matrixBytes = byteOut.toByteArray();
                     out.write(matrixBytes);
-                    out.writeInt(Integer.parseInt(line.split(":")[1]));
+                    out.writeInt(threadCount);
                     out.flush();
 
                     byte resultStatus = in.readByte();

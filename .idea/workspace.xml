@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a79c7ccf-b387-4cea-8d3f-3a72657f2f04" name="Changes" comment="parallel computing lab 3 Atomic">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/parallel_computing/MPJTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/parallel_computing/lab5/client/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/parallel_computing/lab5/server/Data.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/parallel_computing/lab5/server/Server.java" afterDir="false" />
+    <list default="true" id="a79c7ccf-b387-4cea-8d3f-3a72657f2f04" name="Changes" comment="lab4_pc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/parallel_computing/lab1/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/parallel_computing/lab1/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/parallel_computing/lab1/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/parallel_computing/lab1/Matrix.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/my/parallel_computing/lab1/Parallel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/parallel_computing/lab1/Parallel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/parallel_computing/lab5/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/parallel_computing/lab5/client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/parallel_computing/lab5/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/parallel_computing/lab5/server/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +153,9 @@
       <workItem from="1682322388516" duration="40000" />
       <workItem from="1683468390981" duration="3726000" />
       <workItem from="1683979675387" duration="7609000" />
-      <workItem from="1684052910884" duration="10852000" />
+      <workItem from="1684052910884" duration="15615000" />
+      <workItem from="1684396534875" duration="987000" />
+      <workItem from="1684597264255" duration="2857000" />
     </task>
     <task id="LOCAL-00001" summary="parallel_computing lab1">
       <created>1676639395209</created>
@@ -187,7 +185,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681104764387</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="lab4_pc">
+      <created>1684101663983</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1684101663983</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -209,6 +214,7 @@
     <MESSAGE value="parallel computing lab 2 (Thread pool)" />
     <MESSAGE value="parallel computing lab 2 (Thread pool) Final" />
     <MESSAGE value="parallel computing lab 3 Atomic" />
-    <option name="LAST_COMMIT_MESSAGE" value="parallel computing lab 3 Atomic" />
+    <MESSAGE value="lab4_pc" />
+    <option name="LAST_COMMIT_MESSAGE" value="lab4_pc" />
   </component>
 </project>
