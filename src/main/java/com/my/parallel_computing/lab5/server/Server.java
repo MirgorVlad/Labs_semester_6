@@ -19,7 +19,7 @@ import static java.lang.Thread.sleep;
 public class Server {
     //public static AtomicBoolean executorAvailable = new AtomicBoolean(true);
     //public static TaskProcessingThread taskProcessingThread = new TaskProcessingThread();
-    public static CompletableFuture<Matrix> future;
+    //public static CompletableFuture<Matrix> future;
     public static void main(String[] args) throws IOException {
         ServerSocket ss = new ServerSocket(5056);
         //taskProcessingThread.start();
@@ -54,8 +54,7 @@ public class Server {
     }
     public static synchronized Matrix calculate(Matrix matrix, int countThread) {
         try {
-            Matrix result = Parallel.doAction(matrix, countThread, LAB1);
-            return result;
+            return Parallel.doAction(matrix, countThread, LAB1);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -68,6 +67,8 @@ class ClientThread extends Thread {
     private final DataOutputStream dos;
     private final Socket s;
     private boolean finished;
+    Matrix matrixResult = null;
+    CompletableFuture<Matrix> future;
 
     // Constructor
     public ClientThread(Socket s, DataInputStream dis, DataOutputStream dos) {
@@ -83,7 +84,7 @@ class ClientThread extends Thread {
         int[][] matrix = null;
         int threadCount = 1;
         int[] result = null;
-        Matrix matrixResult = null;
+//        Matrix matrixResult = null;
 
 
         while (true)
@@ -121,19 +122,20 @@ class ClientThread extends Thread {
                         Matrix finalMatrixResult = matrixResult;
                         int finalThreadCount = threadCount;
 
-                        Server.future = CompletableFuture.supplyAsync(() ->
+
+                        future = CompletableFuture.supplyAsync(() ->
                                 Server.calculate(finalMatrixResult, finalThreadCount)
                         );
                     }
 
                 }
                 else if(received.equals("result")){
-                    if(!Server.future.isDone()){
+                    if(!future.isDone()){
                         dos.write(0);
                     }
                     else {
                         dos.write(1);
-                        result = matrixResult.getResultArray();
+                        result = future.get().getResultArray();
                         ByteArrayOutputStream byteOut = new ByteArrayOutputStream();
                         ObjectOutputStream objOut = new ObjectOutputStream(byteOut);
                         objOut.writeObject(result);
